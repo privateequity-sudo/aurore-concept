@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Мой сайт</title>
+  <style>
+    :root{
+      --bg:#0f1220; --card:#171a2b; --acc:#6ee7ff; --muted:#aab1c6; --txt:#e7ecff;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial,sans-serif;background:linear-gradient(180deg,#0e1020,#0b0e1a);}
+    a{color:var(--acc);text-decoration:none}
+    .wrap{max-width:1080px;margin:0 auto;padding:24px}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+    .brand{font-weight:700;color:var(--txt);letter-spacing:.3px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:999px;background:var(--acc);color:#04131a;font-weight:600;box-shadow:var(--shadow);transition:.2s}
+    .btn:hover{transform:translateY(-2px);opacity:.95}
+    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:40px 0}
+    .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}
+    h1{color:var(--txt);font-size:clamp(28px,5vw,48px);line-height:1.1;margin:0 0 12px}
+    p{color:var(--muted);font-size:18px;line-height:1.6;margin:0 0 18px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .feat h3{margin:8px 0 6px;color:var(--txt)}
+    .tag{display:inline-block;padding:6px 10px;border:1px solid #2a2e45;border-radius:999px;color:#9fb3ff;font-size:13px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .ph{aspect-ratio:4/3;border-radius:12px;background:linear-gradient(135deg,#1a1f39,#121527);border:1px solid #222744}
+    .foot{padding:28px 0;color:#6f7897;font-size:14px;text-align:center}
+    @media (max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid,.gallery{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:560px){
+      .grid,.gallery{grid-template-columns:1fr}
+      .nav{gap:12px}
+    }
+    .fade{opacity:0;transform:translateY(8px);animation:in .6s ease forwards}
+    .fade2{opacity:0;transform:translateY(8px);animation:in .6s .15s ease forwards}
+    .fade3{opacity:0;transform:translateY(8px);animation:in .6s .3s ease forwards}
+    @keyframes in{to{opacity:1;transform:none}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav">
+      <div class="brand">Мой бренд</div>
+      <div><a class="tag" href="#contact">Связаться</a></div>
+    </div>
+
+    <section class="hero">
+      <div class="fade">
+        <h1>Быстрый и красивый сайт — без кода</h1>
+        <p>Короткий подзаголовок: чем вы занимаетесь и какую пользу даёте. Одно-два предложения — больше не нужно.</p>
+        <a class="btn" href="#contact">Оставить заявку</a>
+      </div>
+      <div class="card fade2">
+        <div class="gallery">
+          <div class="ph"></div><div class="ph"></div><div class="ph"></div>
+          <div class="ph"></div><div class="ph"></div><div class="ph"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card fade2">
+      <span class="tag">Преимущества</span>
+      <div class="grid" style="margin-top:14px">
+        <div class="feat">
+          <h3>Быстро</h3>
+          <p>Запуск за 1 день: шаблон + ваш контент.</p>
+        </div>
+        <div class="feat">
+          <h3>Красиво</h3>
+          <p>Современная типографика, аккуратные отступы, мягкие тени.</p>
+        </div>
+        <div class="feat">
+          <h3>Бесплатно</h3>
+          <p>Хостинг на GitHub Pages / Netlify, бесплатный поддомен.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero" id="contact">
+      <div class="card fade3">
+        <h2 style="color:var(--txt);margin:0 0 10px">Контакты</h2>
+        <p>Почта: <a href="mailto:you@example.com">you@example.com</a><br>Телеграм: @yourhandle</p>
+        <p>Или заполните форму ниже (подключите внешний сервис форм по желанию).</p>
+        <form action="https://formspree.io/f/yourcode" method="POST">
+          <input name="name" placeholder="Ваше имя" style="width:100%;padding:12px;border-radius:10px;border:1px solid #2a2e45;background:#0f1220;color:#e7ecff;margin-bottom:10px">
+          <input name="email" type="email" placeholder="Email" style="width:100%;padding:12px;border-radius:10px;border:1px solid #2a2e45;background:#0f1220;color:#e7ecff;margin-bottom:10px">
+          <textarea name="message" placeholder="Сообщение" rows="4" style="width:100%;padding:12px;border-radius:10px;border:1px solid #2a2e45;background:#0f1220;color:#e7ecff;margin-bottom:12px"></textarea>
+          <button class="btn" type="submit">Отправить</button>
+        </form>
+      </div>
+      <div class="fade3">
+        <h2 style="color:var(--txt);margin:0 0 10px">О проекте</h2>
+        <p>Пара слов о вас/компании. Чем помогаете, кому и почему к вам обращаются.</p>
+        <p><a href="#">Портфолио</a> · <a href="#">Услуги</a> · <a href="#">Отзывы</a></p>
+      </div>
+    </section>
+
+    <div class="foot">© 2025 · Ваше имя</div>
+  </div>
+</body>
+</html>
